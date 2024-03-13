@@ -70,6 +70,13 @@ namespace RunningRazorApp.Pages.Members
 
         }
 
+        public void OnPostSortTeam()
+        {
+            Members = _memberRepo.GetAll();
+
+            Members.Sort(new MemberSortByTeam());
+        }
+
 
         //Kalder Sort efter ID
         //public IActionResult OnPostSortId()

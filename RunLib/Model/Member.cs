@@ -172,11 +172,22 @@ namespace RunLib.Model
             }
         }
 
-        public class MemberSortByName : IComparer<Member>
+        public class MemberSortByTeam : IComparer<Member>
         {
             public int Compare(Member? x, Member? y)
             {
-                throw new NotImplementedException();
+                if( x is null )
+                {
+                    return -1;
+                }
+
+                if ( y is null )
+                {
+                    return -1 ;
+                }
+
+                return x.Team.CompareTo(y.Team);
+
             }
 
 
