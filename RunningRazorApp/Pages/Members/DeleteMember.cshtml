@@ -1,0 +1,26 @@
+﻿@page
+@using RunLib.Model
+@model RunningRazorApp.Pages.Members.DeleteMemberModel
+@{
+}
+
+<h1> Slet et Member </h1>
+
+@* Display af valgte kunde som skal slettes, og 2 knappper, en til at fortyde og en anden til at slette *@
+
+<form method="post">
+    <div class="form-group>">
+        <label>Medlem ID</label> : @Model.Member.Id<br />
+        <br />
+        <label>Navn</label> : @Model.Member.Name<br />
+        <br />
+        <label>Telefonnummer</label>  : @Model.Member.Mobile<br />
+        <br />
+        <label>Team</label>  : @Model.Member.Team<br />
+        <br />
+        <label>Price</label>  : @Model.Member.Price<br />
+        <br />
+        <input type="submit" value="Slet Kunde" class="btn btn-danger" asp-page-handler="Delete" asp-route-id="@Model.Member.Id" />
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+    </div>
+</form>

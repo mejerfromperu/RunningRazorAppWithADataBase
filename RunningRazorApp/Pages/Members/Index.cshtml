@@ -1,0 +1,52 @@
+﻿@page
+@using RunLib.Model
+@model RunningRazorApp.Pages.Members.IndexModel
+@{
+}
+
+
+<form method="post">
+    Vil du oprette en ny Member tryk på <input type="submit" value="Opret" class="btn btn-primary" asp-page-handler="Member" />
+</form>
+
+<div class="form-selectt rounded-2">
+    <form method="post" class="border border-success rounded">
+        <input type="submit" asp-page-handler="Search" value="Søg" class="btn btn-success" />
+        MemberId <input type="number" asp-for="@Model.SearchId" />
+        Navn <input type="text" asp-for="@Model.SearchName" />
+        <select asp-for="@Model.SearchTeam" class="form-select-sm">
+            <option value="" asp-for="@Model.SearchTeam"> Teams</option>
+            <option value="orange" asp-for="@Model.SearchTeam"> Orange</option>
+            <option value="sort" asp-for="@Model.SearchTeam"> Sort</option>
+            <option value="blå" asp-for="@Model.SearchTeam"> Blå</option>
+            <option value="gul" asp-for="@Model.SearchTeam"> Gul</option>
+            <option value="grøn" asp-for="@Model.SearchTeam"> Grøn</option>
+            <option value="rød" asp-for="@Model.SearchTeam"> Rød</option>
+        </select>
+    </form>
+</div>
+<div class="form-selectt">
+    <table class="table table-hover rounded-2">
+        <thead>
+            <tr>
+                <form method="post">
+                <th>Member Nummer</th>
+                <th>Navn</th>
+                <th>Team</th>
+                </form>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Member m in Model.Members)
+            {
+                <tr>
+                    <td>@m.Id</td>
+                    <td>@m.Name</td>
+                    <td>@m.Team</td>
+                    <td><a asp-page="UpdateMember" asp-route-id="@m.Id">Ændre</a></td>
+                    <td><a asp-page="DeleteMember" asp-route-id="@m.Id">Slet</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

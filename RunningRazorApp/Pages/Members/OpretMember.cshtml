@@ -1,0 +1,48 @@
+﻿@page
+@model RunningRazorApp.Pages.Members.OpretMemberModel
+@{
+}
+
+<h1>Biblotek af kroko</h1>
+
+
+
+@* Laver en form som har de nuværende oplysninger om kunden, men kan modtage en ny værdi hvis ændret *@
+<form method="post">
+    <div class="form-group>">
+
+        <label>Member Name</label><br />
+        <input class="form-control" asp-for="@Model.NewMemberName" />
+        <span asp-validation-for="@Model.NewMemberName" class="text-danger"></span>
+        <br />
+        <br/>
+
+        <label>Member Telefon</label><br />
+        <input class="form-control" asp-for="@Model.NewMemberPhoneNumber" minlength="8" maxlength="12"/>
+        <span asp-validation-for="@Model.NewMemberPhoneNumber" class="text-danger"></span>
+        <br />
+        <br />
+
+        <label>Member Team</label><br/>
+        <select asp-for="@Model.NewMemberTeam" class="form-select">
+            <option value="" asp-for="@Model.NewMemberTeam"></option>
+            <option value="orange" asp-for="@Model.NewMemberTeam"> Orange</option>
+            <option value="sort" asp-for="@Model.NewMemberTeam"> Sort</option>
+            <option value="blå" asp-for="@Model.NewMemberTeam"> Blå</option>
+            <option value="gul" asp-for="@Model.NewMemberTeam"> Gul</option>
+            <option value="grøn" asp-for="@Model.NewMemberTeam"> Grøn</option>
+            <option value="rød" asp-for="@Model.NewMemberTeam"> Rød</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label>Member Price</label><br />
+        <input class="form-control" asp-for="@Model.NewMemberPrice" value="50" /><br />
+        <span asp-validation-for="@Model.NewMemberPrice" class="text-danger" /><br />
+        <br />
+        <br/>
+
+        <input type="submit" value="Opret Ny Kunde" class="btn btn-success" />
+        <input type="submit" value="Fortryd" class="btn btn-danger" asp-page-handler="Cancel" />
+    </div>
+</form>
