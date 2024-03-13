@@ -171,5 +171,16 @@ namespace RunLib.Model
 
             }
         }
+
+        public class MemberSortByName : IComparer<Member>
+        {
+            public int Compare(Member? x, Member? y)
+            {
+                throw new NotImplementedException();
+            }
+
+
+        }
+
     }
 }
