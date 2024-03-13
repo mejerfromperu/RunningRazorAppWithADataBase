@@ -64,6 +64,13 @@ namespace RunningRazorApp.Pages.Members
             Members.Sort();
         }
 
+        public void OnPostSortNameDB()
+        {
+            Members = _memberRepo.GetAllDrinksSortedByNameReversed();
+
+        }
+
+
         //Kalder Sort efter ID
         //public IActionResult OnPostSortId()
         //{

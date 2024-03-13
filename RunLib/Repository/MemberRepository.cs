@@ -125,8 +125,9 @@ namespace RunLib.Repository
             return retMembers;
         }
 
-
-
-
+        public List<Member> GetAllDrinksSortedByNameReversed()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

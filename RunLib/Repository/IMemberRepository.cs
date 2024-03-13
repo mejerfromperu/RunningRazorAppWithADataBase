@@ -13,5 +13,8 @@ namespace RunLib.Repository
 
         public List<Member> Search(int? id, string? name, string? team);
 
+        List<Member> GetAllDrinksSortedByNameReversed();
+
+
     }
 }

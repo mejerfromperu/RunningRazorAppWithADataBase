@@ -177,5 +177,28 @@ namespace RunLib.Repository
             return retMembers;
         }
 
+        public List<Member> GetAllDrinksSortedByNameReversed()
+        {
+            // todo type shit
+
+            List<Member> list = new List<Member>();
+
+            SqlConnection connection = new SqlConnection(Secrettt.GetConnectionString);
+            connection.Open();
+
+            string sql = "SELECT * FROM Members ORDER BY Name DESC";
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Member member = ReadMember(reader);
+                list.Add(member);
+            }
+
+
+            connection.Close();
+            return list;
+        }
     }
 }
