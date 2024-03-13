@@ -128,7 +128,7 @@ namespace RunLib.Model
             return $"{{{nameof(Id)}={Id}, {nameof(Name)}={Name}, {nameof(Mobile)}={Mobile}, {nameof(Team)}={Team}, {nameof(Price)}={Price}}}";
         }
 
-        public int CompareTo(Member member)
+        public int CompareTo(Member? member)
         {
             if(member is null)
             {

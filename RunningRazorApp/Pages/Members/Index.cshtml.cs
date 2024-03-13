@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RunLib.Model;
 using RunLib.Repository;
+using static RunLib.Model.Member;
 
 namespace RunningRazorApp.Pages.Members
 {
@@ -47,6 +48,20 @@ namespace RunningRazorApp.Pages.Members
         public IActionResult OnPostMember()
         {
             return RedirectToPage("OpretMember");
+        }
+
+        public void OnPostReverseId()
+        {
+            Members = _memberRepo.GetAll();
+
+            Members.Sort(new MemberSortByIdReverse());
+        }
+
+        public void OnPostSortName()
+        {
+            Members = _memberRepo.GetAll();
+
+            Members.Sort();
         }
 
         //Kalder Sort efter ID
