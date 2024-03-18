@@ -6,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton<IMemberRepository>(new MemberRepositoryDB());
+builder.Services.AddSingleton<UserRepository>(new UserRepository(true));
+
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -21,6 +24,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

@@ -1,0 +1,26 @@
+﻿@page
+@model RunningRazorApp.Pages.Login.LoginModel
+@{
+}
+
+<h1>Login</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form method="post">
+                Name:
+                <input type="text" asp-for="@Model.Username" />
+                <br />
+                Pass:
+                <input type="password" asp-for="@Model.Pass" />
+                <br />
+                <input type="submit" value="Login" class="btn btn-success" />
+            </form>
+            @if (!String.IsNullOrWhiteSpace(Model.ErrorMsg))
+            {
+                <p>Fejl: @Model.ErrorMsg</p>
+            }
+        </div>
+    </div>
+</div>
