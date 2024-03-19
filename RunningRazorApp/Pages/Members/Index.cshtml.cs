@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RunLib.Model;
 using RunLib.Repository;
+using RunningRazorApp.services;
 using static RunLib.Model.Member;
 
 namespace RunningRazorApp.Pages.Members
@@ -29,11 +30,21 @@ namespace RunningRazorApp.Pages.Members
         [BindProperty]
         public string? SearchTeam { get; set; }
 
+        public User user { get; set; }
 
         //Hent alle kunder når siden læses
-        public void OnGet()
+        public IActionResult OnGet()
         {
             Members = _memberRepo.GetAll();
+            try
+            {
+                user = SessionHelper.Get<User>(HttpContext);
+                return Page();
+            }
+            catch (ArgumentException ne)
+            {
+                return RedirectToPage("/Login/Index");
+            }
         }
 
 

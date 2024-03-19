@@ -24,9 +24,9 @@ namespace RunningRazorApp.Pages.Login
         public void OnGet()
         {
             ErrorMsg = string.Empty;
-
+            
         }
-
+        
         public IActionResult OnPost()
         {
             if (Username is null || Pass is null)
