@@ -6,15 +6,15 @@
 
 
 <form method="post">
-    Vil du oprette en ny Member tryk på <input type="submit" value="Opret" class="btn btn-primary" asp-page-handler="Member" />
+    Vil du oprette en ny Member tryk på <input type="submit" value="Opret" class="btn btn-primary" asp-page-handler="Member" style="background-color: #333333; color: #f2f2f2;" />
 </form>
 
 <div class="form-selectt rounded-2">
     <form method="post" class="border border-success rounded">
-        <input type="submit" asp-page-handler="Search" value="Søg" class="btn btn-success" />
+        <input type="submit" asp-page-handler="Search" value="Søg" class="btn btn-success" style="background-color: #87ceeb; color: #333333;" />
         MemberId <input type="number" asp-for="@Model.SearchId" />
         Navn <input type="text" asp-for="@Model.SearchName" />
-        <select asp-for="@Model.SearchTeam" class="form-select-sm">
+        <select asp-for="@Model.SearchTeam" class="form-select-sm" style="background-color: #87ceeb; color: #333333;">
             <option value="" asp-for="@Model.SearchTeam"> Teams</option>
             <option value="orange" asp-for="@Model.SearchTeam"> Orange</option>
             <option value="sort" asp-for="@Model.SearchTeam"> Sort</option>
@@ -28,14 +28,15 @@
 
 <div>
     <form method="post">
-        <input type="submit" class="btn btn-danger" value="sortbyid" asp-page-handler="ReverseId" /> <br />
-        <input type="submit" class="btn btn-danger" value="Sort Name" asp-page-handler="SortName" /> <br />
-        <input type="submit" class="btn btn-danger" value="Sort Name DataBase" asp-page-handler="SortNameDB" /> <br />
-        <input type="submit" class="btn btn-danger" value="Sort Team" asp-page-handler="SortTeam" /> <br />
+        <input type="submit" class="btn" value="sortbyid" asp-page-handler="ReverseId" style="background-color: #333333; color: #f2f2f2;" /> <br />
+        <input type="submit" class="btn" value="Sort Name" asp-page-handler="SortName" style="background-color: #333333; color: #f2f2f2;" /> <br />
+        <input type="submit" class="btn" value="Sort Name DataBase" asp-page-handler="SortNameDB" style="background-color: #333333; color: #f2f2f2;" /> <br />
+        <input type="submit" class="btn" value="Sort Team" asp-page-handler="SortTeam" style="background-color: #333333; color: #f2f2f2;" /> <br />
     </form>
 </div>
+
 <div class="form-selectt">
-    <table class="table table-hover rounded-2">
+    <table class="table table-hover rounded-2" style="background-color: #87ceeb; color: #333333;">
         <thead>
             <tr>
                 <form method="post">
@@ -58,6 +59,6 @@
             }
         </tbody>
     </table>
-
-
 </div>
+
+

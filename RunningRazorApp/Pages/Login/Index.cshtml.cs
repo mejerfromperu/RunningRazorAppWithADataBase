@@ -35,7 +35,7 @@ namespace RunningRazorApp.Pages.Login
                 return Page();
             }
 
-            if (Username != "Jonny" || Pass != "43987677")
+            if (Username != "Jonny" || Pass != "1")
             {
                 ErrorMsg = "Navn eller Kodeord er ikke korrekt";
                 return Page();
